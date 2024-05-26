@@ -36,14 +36,13 @@ DUMP grouped_VD;
 DESCRIBE grouped_VD;
 VD_range = FOREACH grouped_VD GENERATE group AS USAF_ID, (MAX(VD_records.Visibility_Distance) - MIN(VD_records.Visibility_Distance)) AS visibility_range;
 DUMP VD_range;
-```
+``
 
-**Hive Script:**
+**Hive script**
 
 DROP TABLE IF EXISTS VD_records26;
 CREATE TABLE VD_records26 (USAF_ID STRING, Visibility_Distance INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 LOAD DATA LOCAL INPATH '/home/student26/OUTPUT_VD/part-00000' OVERWRITE INTO TABLE VD_records26;
 SELECT USAF_ID, AVG(Visibility_Distance) AS avg_visibility FROM VD_records26 GROUP BY USAF_ID;
-
 
 This project showcased my technical proficiency in leveraging advanced big data technologies and my ability to lead critical data-driven initiatives, delivering robust tools for enhanced climate data analysis and operational decision-making.
